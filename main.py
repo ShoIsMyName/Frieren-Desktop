@@ -26,6 +26,7 @@ canvas = tk.Canvas(root, width=WIDTH, height=HEIGHT, bg="white", highlightthickn
 canvas.pack()
 
 
+
 # create hidden icons
 def quit_all(icon, item):
     icon.stop() 
@@ -42,6 +43,7 @@ tray_thread = threading.Thread(target=setup_tray, daemon=True)
 tray_thread.start()
 
 
+
 # physics
 x, y = 500, 100
 vy = 0            # Vertical velocity
@@ -50,6 +52,8 @@ gravity = 1
 screen_height = root.winfo_screenheight()
 screen_width = root.winfo_screenwidth()
 floor = screen_height - (HEIGHT + 50)
+
+
 
 # drag
 dragging = False
@@ -73,6 +77,7 @@ def on_release(event):
     dragging = False
 
 
+
 # leave function
 def greet(event):
     if messagebox.askyesno("Hi", "Do you want to say hi?"):
@@ -91,12 +96,14 @@ canvas.bind("<ButtonRelease-1>", on_release)
 canvas.bind("<Double-Button-1>", greet)
 
 
+
 # character state
 state = "idle"
 walk_timer = 0
 walk_duration = 0
 
 speed = 3
+
 
 
 # character image sprites
@@ -113,6 +120,7 @@ def set_sprite():
     global img
     img = sprite(default_image)
     canvas.create_image(WIDTH//2, HEIGHT//2, image=img)
+
 
 
 # loop
